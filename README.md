@@ -1,66 +1,60 @@
-# @semillero/all-pokemon
+# Lista de Pokémon UI
 
-## Package info
+## Descripción
 
-### Package installation
+# Descripción
 
-Installation using NPM
+**Lista de Pokémon UI** es un componente de interfaz de usuario que permite visualizar una lista de Pokémon con su nombre. Este componente consume el componente **@pokemon/all-pokemon--dm** para obtener datos de Pokémon desde la API de [PokeAPI](https://pokeapi.co/). Cada Pokémon en la lista tiene un botón que, al hacer clic, muestra sus evoluciones de manera atractiva.
 
-```bash
-npm install @semillero/all-pokemon
-```
+## Características
 
-### Entry points & exports
+- Muestra una lista de Pokémon con su nombre.
+- Cada Pokémon tiene un botón para ver sus evoluciones.
 
-- (Default entry point)
-  - AllPokemon (Class)
-- all-pokemon.js
-  - all-pokemon (Custom Element)
+## Requisitos
 
+- Node.js
+- cells-cli
 
-## AllPokemon (Class) all-pokemon (Custom Element) 
+## Instalación
 
-### Extends from
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/DianaJ-Dev/allPokemon
+   ```
 
-LitElement (lit-element package)
+2. Instala las dependencias:
+    ```bash
+   npm install
+   ```
 
-### Usage
+3. Instala cells-cli globalmente si no lo tienes instalado:
+    ```bash
+    npm install -g cells-cli
+    ```
 
-Import and extend the class:
+4. Inicia la aplicación localmente:
+    ```bash
+    cells lit-component:serve
+    ```
+### Uso
 
-```js
-import { AllPokemon } from '@semillero/all-pokemon';
+1. Añade la dependencia del componente en tu package.json:
+    ```bash
+    @semillero/evolution-pokemones": "git+https://github.com/DianaJ-Dev/allPokemon.git#main
+    ```
 
-class ExampleElement extends AllPokemon {
-  ...
-}
-```
-
-Use the custom element (defined globally):
-
-```js
-import '@semillero/all-pokemon/all-pokemon.js';
-```
-
-```html
-<all-pokemon ...>
-  ...
-</all-pokemon>
-```
-
-### Description
-
-![LitElement component](https://img.shields.io/badge/litElement-component-blue.svg)
-
-This component ...
-
-Example:
-
-```html
-  <all-pokemon></all-pokemon>
-```
-
-### Properties
-
-- **name**: string = "Cells" (attribute: name)
-    Description for property
+2. Instala la dependencia:
+   ```bash
+    npm install
+    ```
+3. Importa el componente en tu aplicación:
+    ```bash
+    import '@semillero/all-pokemon/all-pokemon.js'
+    ```
+4. Añade el componente a tu HTML:
+   ```bash
+    <all-pokemon></all-pokemon>
+    ```
+#### Estilos
+Puedes personalizar los estilos del componente modificando el archivo CSS correspondiente. Asegúrate de incluir el archivo de estilos en tu proyecto.    

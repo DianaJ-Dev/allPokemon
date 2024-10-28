@@ -7,6 +7,7 @@ import '@bbva-web-components/bbva-button-default/bbva-button-default.js';
 import '@bbva-web-components/bbva-core-icon/bbva-core-icon.js';
 import '@bbva-web-components/bbva-foundations-spinner/bbva-foundations-spinner.js';
 import '@bbva-web-components/bbva-core-heading/bbva-core-heading.js';
+import '@pokemon/all-pokemon--dm/all-pokemon--dm.js';
 
 
 const icon = bbvaSearch();
@@ -31,23 +32,15 @@ export class AllPokemon extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.fetchPokemons();
   }
 
-  async fetchPokemons() {
-    
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10');
-    const data = await response.json();
-
-    const pokemonPromises = data.results.map(async (pokemon) => {
-      const pokemonResponse = await fetch(pokemon.url);
-      return await pokemonResponse.json();
-    });
-
-    this.pokemons = await Promise.all(pokemonPromises); 
-    
+  async firstUpdated() {
+    const pokemonData = this.shadowRoot.querySelector('all-pokemon--dm');
+    if (pokemonData) {
+      this.pokemons = await pokemonData.fetchPokemons();
+    }
   }
-
+  
   async showDetails(pokemon) {
     this.loading = true; 
     this.selectedPokemon = pokemon; 
@@ -82,6 +75,7 @@ export class AllPokemon extends LitElement {
           </div>
         </div>
       </div>
+      <all-pokemon--dm><all-pokemon--dm/>
     `;
   }
 }
